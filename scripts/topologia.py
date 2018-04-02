@@ -72,7 +72,7 @@ def run(tx, packlen, pinglen, logname, security):
     net = Mininet(topo=topo, link=TCLink)
     net.start()
     print("Starting...")
-    net.hosts[0].cmd("java -jar SddlSecTests.jar -G "+ sec +"&")
+    net.hosts[0].cmd("java -jar SddlSecTests.jar -G "+ sec +" &")
     net.hosts[0].cmd("java -jar SddlSecTests.jar -S -tx " + tx + " -l " + packlen + " -pl "+ pinglen + " -o " + logname +" &")
     time.sleep(5)
     net.hosts[1].cmdPrint("java -jar SddlSecTests.jar -C "+ sec +"-h 10.0.0.1")
